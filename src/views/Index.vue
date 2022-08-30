@@ -20,11 +20,16 @@
         <!-- //// 헤더 //// -->
         <header>
             <!-- 글로벌 네비 -->
-            <div class="global_nav">
-                <div class="GNV_relative">
+            <div class="global_nav start" :class="{ end : GNB == true }">
+                <div class="GNB_relative">
                     <div class="btns">
-                        <a href="#none" class="plus_bt"><img src="../assets/indexView/main_plus_bt.png" alt="글로벌네비게이션 더보기"></a>
-                        <div class="plus_touch_show">
+                        <a href="#none" class="plus_bt start" @click="GNB = true" v-if="GNB == false">
+                            <img src="../assets/indexView/main_plus_bt.png" alt="글로벌네비게이션 더보기">
+                        </a>
+                        <div class="plus_touch_show end" @click="GNB = false" v-if="GNB == true">
+                            <a href="#none" class="close_bt">
+                                <img src="../assets/indexView/main_plus_bt.png" alt="글로벌네비게이션 닫기">
+                            </a>
                             <a href="#none" class="refresh_bt"><img src="../assets/indexView/main_refresh_bt.png" alt="새로고침"></a>
                             <a href="#none" class="share_bt"><img src="../assets/indexView/main_share_bt.png" alt="공유하기"></a>
                             <a href="#none" class="setting_bt"><img src="../assets/indexView/main_setting_bt.png" alt="설정"></a>
@@ -157,6 +162,7 @@ export default {
     data() {
         return {
             intro : true,
+            GNB : false,
             goodWords,
             healingBanners,
             popularMedias,
@@ -171,16 +177,6 @@ export default {
         SwiperSlide,
     },
     mounted() {
-
-        // 2초 후에 <Discount> 사라지게?
-        setTimeout (()=> { // arrow function 쓰는 이유 : this를 바깥에있는 this를 제대로 잘 가져다 쓰기 위해서 (그래서 여기서는 arrow function으로 써야함)
-
-            // 실행할 코드
-            // 할인홍보배너 닫아주셈
-            this.intro = false;
-        }, 1000);
-
-        this.random();
 
     },
     methods: {
@@ -295,24 +291,24 @@ header {
 /* 글로벌 네비 */
 .global_nav {
     /* display: none; */
-    width: 160px;
+    width: 200px;
     height: 50px;
     background-color: #68b39f;
     border-radius: 26px 0 0 26px;
     position: absolute;
     top: 40px;
-    right: -80px;
-    /* 터치전/후 80px 차이 */
+    right: -120px;
+    /* 터치전/후 120px 차이 */
 }
 
-.GNV_relative {
+.GNB_relative {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
 .btns {
-    width: 160px;
+    width: 200px;
     height: 50px;
     margin-top: 2px;
     display: flex;
@@ -331,8 +327,9 @@ header {
     /* display: none; */
 }
 
+/* 터치시 나오는 메뉴 */
 .plus_touch_show {
-    width: 85%;
+    width: 90%;
     height: 40px;
     display: flex;
     /* !!!!(07.28) : 버튼 이동 */
@@ -340,13 +337,28 @@ header {
     /* !!!!(07.28) : 버튼 이동 */
     margin-right: 12px;
     justify-content: space-between;
-    display: none;
+    /* display: none; */
 }
 
 .plus_touch_show a {
     display: block;
     width: 40px;
     height: 40px;
+}
+
+.plus_touch_show .close_bt img {
+    transform: rotate(45deg);
+}
+
+/* GNB open/close_트랜지션 */
+.global_nav.start {
+    transform: translateX(0px);
+    transition: all 1s;
+}
+
+.global_nav.end {
+    transform: translateX(-120px);
+    transition: all 1s;
 }
 
 /* 프로필 영역 */

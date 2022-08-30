@@ -96,8 +96,8 @@ footer{
     bottom: 20px;
     left: 50%;
     transform: translate(-50%);
-
 }
+
 footer .footer_all {
     background-color: #68b39f;
     padding: 20px 0;
@@ -105,6 +105,7 @@ footer .footer_all {
     flex-flow: row nowrap;
     justify-content: space-evenly;
 }
+
 footer .footer_all div{
     width: 100%;
     height: 35px;
@@ -115,6 +116,7 @@ footer .footer_all div{
     align-items: center;
 
 }
+
 .f_title{
     font-size: 12px;
     font-weight: 600;
@@ -122,6 +124,7 @@ footer .footer_all div{
     width: 100%;
     height: 30px;
 }
+
 footer .home{
     padding-bottom: 30px;
 }

@@ -227,8 +227,8 @@ body::-webkit-scrollbar {
 /* //// 레이아웃 시작 //// */
 
 .wrap {
-    max-width: 767px;
-    min-width: 425px;
+    max-width: calc(767px - 40px);
+    min-width: calc(425px - 40px);
     width: calc(100% - 40px);
     position: relative;
     left: 50%;
@@ -347,26 +347,13 @@ input::-webkit-search-results-decoration{
   border-radius: 30px;
   position: relative;
 }
-.swiper-slide:nth-child(1) .inside-wrapper{
-    background: url(../assets/shopView/shop_productImg_01.jpg) center no-repeat;
+
+.swiper-slide .inside-wrapper{
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-.swiper-slide:nth-child(2) .inside-wrapper{
-    background: url(../assets/shopView/shop_productImg_01.jpg) center no-repeat;
-    background-size: cover;
-}
-.swiper-slide:nth-child(3) .inside-wrapper{
-    background: url(../assets/shopView/shop_productImg_01.jpg) center no-repeat;
-    background-size: cover;
-}
-.swiper-slide:nth-child(4) .inside-wrapper{
-    background: url(../assets/shopView/shop_productImg_01.jpg) center no-repeat;
-    background-size: cover;
-}
-.swiper-slide:nth-child(5) .inside-wrapper{
-    background: url(../assets/shopView/shop_productImg_01.jpg) center no-repeat;
-    background-size: cover;
-}
+
 .swiper-container {
   max-width: 100%;
   overflow: hidden;

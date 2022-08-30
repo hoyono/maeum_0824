@@ -127,10 +127,9 @@ export default {
                 this.$refs.bottom.style.bottom = "0"
                 this.click = 0
             }else if(this.click === 0){
-                this.$refs.bottom.style.bottom = "-32%"
+                this.$refs.bottom.style.bottom = "calc(-100% + 145px)"
                 this.click = 1
             }
-           
         }
     },
 }
@@ -302,13 +301,15 @@ h1 {
     width: 100%;
     max-width: 767px;
     min-width: 425px;
-    height: auto;
+    /* height: auto; */
+    height: 100%;
     padding: 30px 0 110px;
     /* !!!!(07.29) : 굴곡 수정 */
     border-radius: 50px 50px 0 0;
     background-color: #fff;
     position: fixed;
-    bottom: -32%;
+    /* bottom: -32%; */
+    bottom: calc(-100% + 145px);
     left: 50%;
     transform: translateX(-50%);
     transition: bottom .4s;

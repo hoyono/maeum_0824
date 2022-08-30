@@ -53,21 +53,27 @@
                     <!-- 일기 추가 -->
                     <div class="section1">
                         <h3>일기 추가</h3>
-                        <!-- ???? : 체크박스로 만들어서 중복체크 됨 -->
-                        <form class="form_diary_radio">
-                            <div class="checkbox">
-                                <input class="checkbox1" type="checkbox" id="checkbox1" value="일기" name="diary">
-                                <label for="checkbox1">일기</label>
-                            </div>
-                            <router-link to="/AddList">
-                                <div class="checkbox">
-                                    <input class="checkbox2" type="checkbox" id="checkbox2" value="리스트" name="list">
-                                    <label for="checkbox2">리스트</label>
+                        <!-- 일기 -->
+                        <router-link to="/ListDairy">
+                            <div class="diary">
+                                <div class="circle">
+                                    <span class="check">✔</span>
                                 </div>
-                            </router-link>
-                        </form>
-
+                                <span>일기</span>
+                            </div>
+                        </router-link>
+                        <!-- 리스트 -->
+                        <router-link to="/AddList">
+                            <div class="list">
+                                <div class="circle">
+                                    <span class="check">✔</span>
+                                </div>
+                                
+                                <span>리스트</span>
+                            </div>
+                        </router-link>
                     </div>
+
                     <!-- 일기 제목 -->
                     <div class="section2">
                         <!-- !!!!(07.28) : h태그수정 여기부터 h3 -> h4 -->
@@ -164,6 +170,7 @@
                             <li class="color color5"></li>
                         </ul>
                     </div>
+
                     <!-- 버튼 -->
                     <div class="btns">
                         <button class="cancel">취소</button>
@@ -174,7 +181,7 @@
             </div>
         </section>
         <!-- //// 푸터 //// -->
-        <Footer></Footer>
+        <!-- <Footer></Footer>/ -->
     </div> <!-- class="wrap" -->
 </template>
 
@@ -384,10 +391,13 @@ section {
 .section1{
     width: 100%;
     font-size: 1em;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* !!!!(07.28) : h태그 수정/추가 */
 h3 {
+    width: 100%;
     font-size: 25px;
     margin-bottom: 20px;
 }
@@ -397,82 +407,57 @@ h4 {
     margin-bottom: 20px;
 }
 
-.section1 .form_diary_radio {
+/* 일기 / 리스트 선택 */
+
+/* 일기 */
+.diary {
     display: flex;
-    flex-flow: row nowrap;
-    gap: 50px;
-    font-weight: 800;
+    gap: 6px;
+    font-weight: 600;
 }
 
-/* 일기 추가_input1 */
-.checkbox1 + label{
-    position: relative;
-}
-.checkbox input[type="checkbox"].checkbox1{
-    display: none;
-}
-.checkbox input[type="checkbox"].checkbox1 + label:before { /* 체크박스 배경 */
-    display: inline-block;
-    content: '';
-    width: 1.2em; 
-    height: 1.2em;
+.diary .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
     background-color: #CFD345;
-    border-radius: 50%;
-    margin: 0 7px -3px 0;
-}
-.checkbox input[type="checkbox"].checkbox1 + label:after { /* 체크 마크 */
-    position: absolute;
-    left: 3px;
-    top: 3px;
-    content: '✔';
-    font-size: 0.9em;
-    line-height: 0.8;
-    color: #fff;
-    transition: all .25s;
-}
-[type="checkbox"].checkbox1 + label:after { /* 기본 상태 - 투명에 크기 0 */
-    opacity: 0;
-    transform: scale(0);
-}
-[type="checkbox"]:checked.checkbox1 + label:after { /* 체크 상태 - 불투명에 크기 1 */
-    opacity: 1;
-    transform: scale(1);
-}
-
-/* 일기 추가_input2 */
-.checkbox2 + label{
     position: relative;
 }
-.checkbox input[type="checkbox"].checkbox2{
-    display: none;
-}
-.checkbox input[type="checkbox"].checkbox2 + label:before { /* 체크박스 배경 */
-    display: inline-block;
-    content: '';
-    width: 1.2em; 
-    height: 1.2em;
-    background-color: #FDA769;
-    border-radius: 50%;
-    margin: 0 7px -3px 0;
-}
-.checkbox input[type="checkbox"].checkbox2 + label:after { /* 체크 마크 */
+
+.diary .check {
     position: absolute;
-    left: 3px;
-    top: 3px;
-    content: '✔';
-    font-size: 0.9em;
-    line-height: 0.8;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: #fff;
-    transition: all .25s;
+    font-size: 16px;
 }
-[type="checkbox"].checkbox2 + label:after { /* 기본 상태 - 투명에 크기 0 */
-    opacity: 0;
-    transform: scale(0);
+
+/* 리스트 */
+.list {
+    display: flex;
+    gap: 6px;
+    font-weight: 600;
+    margin-left: 50px;
 }
-[type="checkbox"]:checked.checkbox2 + label:after { /* 체크 상태 - 불투명에 크기 1 */
-    opacity: 1;
-    transform: scale(1);
+
+.list .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #FDA769;
+    position: relative;
 }
+
+.list .check {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 16px;
+}
+
 
 /* 일기 제목 */
 .section2{

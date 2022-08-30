@@ -146,8 +146,8 @@ section{
     /*     display: flex;
     flex-flow: column nowrap;
     justify-content: center; */
-    max-width: 767px;
-    min-width: 425px;
+    max-width: calc(767px - 40px);
+    min-width: calc(425px - 40px);
     width: calc(100% - 40px);
     margin: 0 auto;
 }

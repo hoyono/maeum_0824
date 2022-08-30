@@ -56,6 +56,7 @@
                     </li>
                 </ul>
             </div>
+
             <!-- 리스트 작성란(아래쪽 영역) -->
             <div class="list-bottom">
                 <!-- 리스트 작성 묶음 -->
@@ -66,48 +67,18 @@
                         <!-- !!!!(07.29) : 시온이꺼 복붙 -->
                         <!-- ???? : 체크박스로 만들어서 중복체크 됨 -->
                         <form class="form_diary_radio">
-                            <router-link to="ListDairy" class="radio">
-                                <div class="radio">
-                                    <input class="radio1" type="radio" id="radio1" value="일기" name="diary">
-                                    <label for="radio1">일기</label>
-                                </div>
-                            </router-link>
+                            <div class="radio">
+                                <input class="radio1" type="radio" id="radio1" value="일기" name="diary">
+                                <label for="radio1" @click="$router.push(`/AddNote/Diary`)">일기</label>
+                            </div>
                             <div class="radio">
                                 <input class="radio2" type="radio" id="radio2" value="리스트" name="list">
-                                <label for="radio2">리스트</label>
+                                <label for="radio2" @click="$router.push(`/AddNote/List`)">리스트</label>
                             </div>
                         </form>
                     </div>
                     
-                    <!-- 알람설정 -->
-                    <div class="section2">
-                        <h4>알람설정</h4>
-                        <div class="alarm">
-                            <div class="time_set alarm-start"><span>12:00</span><span class="alarm_img"></span></div>
-                            <div class="time_set alarm-end"><span>17:00</span><span class="alarm_img"></span ></div>
-                        </div>
-                    </div>
-
-                    <!-- 리스트 내용 -->
-                    <div class="section3">
-                        <h4>리스트 내용</h4>
-                        <textarea type="text" v-model="newWishItem" v-on:keyup.enter="addWish" class="list_input_field" placeholder="리스트 내용을 작성하세요" ></textarea>
-                    </div>
-
-                        <!-- 모달팝업의 내용을 slot을 이용해 타이틀과 내용띄우기 -->
-                    <modal v-if="showModal" @close="showModal = false">
-                        <!-- 모달제목 -->
-                        <template v-slot:header>
-                            <h3>팝업타이틀</h3>
-                        </template>
-                        <!-- 모달내용 -->
-                        <template v-slot:footer>
-                            <span @click="showModal = false">
-                                할일을 입력하세요
-                                <i class="closeModalBtn fas fa-times" aria-hidden="true"></i>
-                            </span>
-                        </template>
-                    </modal>
+                    <router-view></router-view>
 
                     <!-- 버튼 -->
                     <div class="section4">

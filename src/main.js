@@ -6,4 +6,4 @@ import store from './store'
 
 createApp(App).use(router).mixin(mixins).use(store).mount('#app')
 
-window.Kakao.init("b0eaea4b452692c85ff4fd6fb310115e");
+window.Kakao.init("a327b9f5ecd0686823e93fba77883b70");
